@@ -39,4 +39,4 @@ macOS: 13.0.1 (22A400)
 3. Dortania Install Guide
 4. Other community driven projects
 
-[^1]: Remove `npci=0x3000` from boot-args if you are not on a Gigabyte/Aorus or an AsRock motherboard
+[^1]: Remove `npci=0x3000` from boot-args if you are not on a Gigabyte/Aorus or an AsRock motherboard and enable `Above 4G Decoding` in bios.
