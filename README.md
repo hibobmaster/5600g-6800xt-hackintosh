@@ -1,7 +1,7 @@
 # 5600g-6800xt-hackintosh
 
-OpenCore version: 0.8.7 <br>
-macOS: 13.0.1 (22A400)
+OpenCore version: 0.9.5 <br>
+macOS: 13.6 (22G120)
 
 | Hardware |                                        |
 | -------- | -------------------------------------- |
@@ -27,6 +27,7 @@ macOS: 13.0.1 (22A400)
 
 
 ## Demonstration
+![About Page](https://i.imgur.com/zUgb23q.png)
 ![AMD Power Gadget](https://user-images.githubusercontent.com/32976627/207086575-bebc3c34-e355-48a1-a6f4-3dd1839630c4.jpeg)
 ![cinebench](https://user-images.githubusercontent.com/32976627/207087084-2ae33825-e8f0-4fef-b182-c07dc5494179.jpeg)
 ![geekbench5-opencl](https://user-images.githubusercontent.com/32976627/207087211-b487d22f-d600-4829-a15f-7357f5a1ddae.png)
