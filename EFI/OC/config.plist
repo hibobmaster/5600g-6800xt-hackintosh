@@ -2,33 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>#WARNING - 1</key>
-	<string>This is just a sample. Do NOT try loading it.</string>
-	<key>#WARNING - 2</key>
-	<string>Ensure you understand EVERY field before booting.</string>
-	<key>#WARNING - 3</key>
-	<string>In most cases recommended to use Sample.plist</string>
-	<key>#WARNING - 4</key>
-	<string>Use SampleCustom.plist only for special cases.</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-EC-USBX-DESKTOP.aml</string>
+				<string>SSDT-CPUR.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-EC-USBX-DESKTOP.aml</string>
+				<string>SSDT-CPUR.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-CPUR.aml</string>
+				<string>SSDT-EC-USBX-DESKTOP.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-CPUR.aml</string>
+				<string>SSDT-EC-USBX-DESKTOP.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -206,7 +198,7 @@
 			<key>EnableSafeModeSlide</key>
 			<true/>
 			<key>EnableWriteUnprotector</key>
-			<true/>
+			<false/>
 			<key>ForceBooterSignature</key>
 			<false/>
 			<key>ForceExitBootServices</key>
@@ -336,6 +328,24 @@
 			</dict>
 			<dict>
 				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>NVMeFix.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/NVMeFix</string>
+				<key>MaxKernel</key>
+				<string>22.9.9</string>
+				<key>MinKernel</key>
+				<string>18.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
 				<string>AMDRyzenCPUPowerManagement.kext</string>
@@ -392,24 +402,6 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>NVMeFix.kext</string>
-				<key>Comment</key>
-				<string>NVMeFix.kext</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/NVMeFix</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
 				<string>RadeonSensor.kext</string>
 				<key>Comment</key>
 				<string>RadeonSensor.kext</string>
@@ -428,13 +420,13 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>RealtekRTL8111.kext</string>
+				<string>RestrictEvents.kext</string>
 				<key>Comment</key>
-				<string>RealtekRTL8111.kext</string>
+				<string>RestrictEvents.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/RealtekRTL8111</string>
+				<string>Contents/MacOS/RestrictEvents</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -514,24 +506,6 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>RestrictEvents.kext</string>
-				<key>Comment</key>
-				<string>RestrictEvents.kext</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/RestrictEvents</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
 		</array>
 		<key>Block</key>
 		<array>
@@ -596,7 +570,7 @@
 				<key>Base</key>
 				<string>_cpuid_set_info</string>
 				<key>Comment</key>
-				<string>algrey - Force cpuid_cores_per_package 10.13,10.14</string>
+				<string>algrey | Force cpuid_cores_per_package to constant (user-specified) | 10.13-10.14</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -626,7 +600,7 @@
 				<key>Base</key>
 				<string>_cpuid_set_info</string>
 				<key>Comment</key>
-				<string>algrey - Force cpuid_cores_per_package 10.15,11.0</string>
+				<string>algrey | Force cpuid_cores_per_package to constant (user-specified) | 10.15-11.0</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -656,7 +630,7 @@
 				<key>Base</key>
 				<string>_cpuid_set_info</string>
 				<key>Comment</key>
-				<string>algrey - Force cpuid_cores_per_package 12.0/13.0</string>
+				<string>algrey | Force cpuid_cores_per_package to constant (user-specified) | 12.0-13.2</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -670,13 +644,43 @@
 				<key>Mask</key>
 				<data>//3/AAAA</data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>22.3.99</string>
 				<key>MinKernel</key>
 				<string>21.0.0</string>
 				<key>Replace</key>
 				<data>ugYAAACQ</data>
 				<key>ReplaceMask</key>
-				<data>////////</data>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string>_cpuid_set_info</string>
+				<key>Comment</key>
+				<string>algrey | Force cpuid_cores_per_package to constant (user-specified) | 13.3+</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>wegaAAA=</data>
+				<key>Identifier</key>
+				<string>kernel</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>//3/AAA=</data>
+				<key>MaxKernel</key>
+				<string>23.99.99</string>
+				<key>MinKernel</key>
+				<string>22.4.0</string>
+				<key>Replace</key>
+				<data>ugYAAAA=</data>
+				<key>ReplaceMask</key>
+				<data>//////8=</data>
 				<key>Skip</key>
 				<integer>0</integer>
 			</dict>
@@ -686,7 +690,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _commpage_populate - Remove rdmsr - 10.13/10.14/10.15/11.0/12.0/13.0</string>
+				<string>algrey | _commpage_populate | Remove rdmsr | 10.13+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -700,11 +704,11 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
-				<data>Dx+AAAAAAA==</data>
+				<data>ZpBmkGaQkA==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -716,7 +720,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _cpuid_set_cache_info - Set cpuid to 0x8000001D instead 4 - 10.13/10.14/10.15/11.0/12.0/13.0</string>
+				<string>algrey | _cpuid_set_cache_info | Set CPUID proper instead of 4 | 10.13+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -730,7 +734,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -746,7 +750,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _cpuid_set_generic_info - Remove wrmsr - 10.13/10.14/10.15/11.0/12.0/13.0</string>
+				<string>algrey | _cpuid_set_generic_info | Remove wrmsr(0x8B) | 10.13+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -760,11 +764,11 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
-				<data>Zg8fhAAAAAAAZpA=</data>
+				<data>ZpBmkGaQZpBmkJA=</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -776,7 +780,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _cpuid_set_generic_info - Set microcode=186 - 10.13/10.14/10.15/11.0/12.0/13.0</string>
+				<string>algrey | _cpuid_set_generic_info | Replace rdmsr(0x8B) with constant 186 | 10.13+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -790,7 +794,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -806,7 +810,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _cpuid_set_generic_info - Set flag=1 - 10.13/10.14/10.15/11.0/12.0/13.0</string>
+				<string>algrey | _cpuid_set_generic_info | Set flag=1 | 10.13+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -820,7 +824,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -836,7 +840,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _cpuid_set_generic_info - Disable check to allow leaf7 - 13.0</string>
+				<string>algrey | _cpuid_set_generic_info | Disable check to allow leaf7 | 10.13+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -850,9 +854,9 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
-				<string>22.0.0</string>
+				<string>17.0.0</string>
 				<key>Replace</key>
 				<data>AAAPgg==</data>
 				<key>ReplaceMask</key>
@@ -866,7 +870,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _cpuid_set_info - GenuineIntel to AuthenticAMD - 10.13/10.14/10.15/11.0</string>
+				<string>algrey | _cpuid_set_info | GenuineIntel to AuthenticAMD | 10.13-11.0</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -894,27 +898,27 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>Base</key>
-				<string></string>
+				<string>_cpuid_set_info</string>
 				<key>Comment</key>
-				<string>Goldfish64 - Bypass GenuineIntel check panic - 12.0/13.0</string>
+				<string>Goldfish64, algrey | Bypass GenuineIntel check panic | 12.0+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>uW4AAAAPvsA5wQAAAAAAAA==</data>
+				<data>AAAAAAAAMdKzAQ==</data>
 				<key>Identifier</key>
 				<string>kernel</string>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data>/////////////wAAAAAAAA==</data>
+				<data>AAAAAAAA/////w==</data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>21.0.0</string>
 				<key>Replace</key>
-				<data>uW4AAAAPvsA5wZCQkJCQkA==</data>
+				<data>kJCQkJCQMdKzAQ==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -926,7 +930,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _cpuid_set_cpufamily - Force CPUFAMILY_INTEL_PENRYN - 10.13/10.14/10.15/11.2</string>
+				<string>algrey | _cpuid_set_cpufamily | Force CPUFAMILY_INTEL_PENRYN | 10.13-11.2</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -956,7 +960,7 @@
 				<key>Base</key>
 				<string>_cpuid_set_info </string>
 				<key>Comment</key>
-				<string>algrey - _cpuid_set_cpufamily - Force CPUFAMILY_INTEL_PENRYN - 11.3 + / 12.0/13.0</string>
+				<string>algrey | _cpuid_set_cpufamily | Force CPUFAMILY_INTEL_PENRYN | 11.3+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -970,7 +974,7 @@
 				<key>Mask</key>
 				<data>//8AAAAA//8=</data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>20.4.0</string>
 				<key>Replace</key>
@@ -986,7 +990,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _i386_init - Remove rdmsr (x3) - 10.13/10.14/10.15/11.0/12.0/13.0</string>
+				<string>algrey | _i386_init | Remove 3 rdmsr calls | 10.13+</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -1000,7 +1004,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -1016,7 +1020,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey/XLNC - Remove version check and panic</string>
+				<string>algrey, XLNC | Remove version check and panic | 10.13+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -1030,7 +1034,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -1046,27 +1050,57 @@
 				<key>Base</key>
 				<string>__ZN11IOPCIBridge13probeBusGatedEP14probeBusParams</string>
 				<key>Comment</key>
-				<string>CaseySJ - probeBusGated Disable 10 bit tags - 12.0/13.0</string>
+				<string>CaseySJ | probeBusGated | Disable 10 bit tags | 12.0+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>5hFyBg==</data>
+				<data>4BFyAA==</data>
 				<key>Identifier</key>
 				<string>com.apple.iokit.IOPCIFamily</string>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>8P//8A==</data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>21.0.0</string>
 				<key>Replace</key>
-				<data>5hFzBg==</data>
+				<data>AAADAA==</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>AAAPAA==</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string>__ZN17IOPCIConfigurator18IOPCIIsHotplugPortEP16IOPCIConfigEntry</string>
+				<key>Comment</key>
+				<string>CaseySJ | IOPCIIsHotplugPort | Fix PCI bus enumeration on AM5 | 13.0+</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>hAB1Sw==</data>
+				<key>Identifier</key>
+				<string>com.apple.iokit.IOPCIFamily</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>/wD//w==</data>
+				<key>MaxKernel</key>
+				<string>23.99.99</string>
+				<key>MinKernel</key>
+				<string>22.0.0</string>
+				<key>Replace</key>
+				<data>AADrAA==</data>
+				<key>ReplaceMask</key>
+				<data>AAD/AA==</data>
 				<key>Skip</key>
 				<integer>0</integer>
 			</dict>
@@ -1076,7 +1110,67 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - _mtrr_update_action fix PAT - 10.13/10.14/10.15/11.0/12.0/13.0</string>
+				<string>Visual | thread_quantum_expire, thread_unblock, thread_invoke | Remove non-monotonic time panic | 12.0+</string>
+				<key>Count</key>
+				<integer>3</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>SAAAAAIAAEgAAFgAAAAPAAAAAAA=</data>
+				<key>Identifier</key>
+				<string>kernel</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>/wAAD/////8AAP8AAAD/AAAAAAA=</data>
+				<key>MaxKernel</key>
+				<string>23.99.99</string>
+				<key>MinKernel</key>
+				<string>21.0.0</string>
+				<key>Replace</key>
+				<data>AAAAAAAAAAAAAAAAAABmkGaQZpA=</data>
+				<key>ReplaceMask</key>
+				<data>AAAAAAAAAAAAAAAAAAD///////8=</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string></string>
+				<key>Comment</key>
+				<string>Visual | thread_invoke, thread_dispatch | Remove non-monotonic time panic | 12.0+</string>
+				<key>Count</key>
+				<integer>2</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>SAAAgAQAAA8AAAAAAA==</data>
+				<key>Identifier</key>
+				<string>kernel</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>SAAA8P////8AAAAAAA==</data>
+				<key>MaxKernel</key>
+				<string>23.99.99</string>
+				<key>MinKernel</key>
+				<string>21.0.0</string>
+				<key>Replace</key>
+				<data>AAAAAAAAAGaQZpBmkA==</data>
+				<key>ReplaceMask</key>
+				<data>AAAAAAAAAP///////w==</data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Base</key>
+				<string></string>
+				<key>Comment</key>
+				<string>algrey | _mtrr_update_action | fix PAT | 10.13+</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -1090,7 +1184,7 @@
 				<key>Mask</key>
 				<data>////////D////////////////w==</data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -1106,7 +1200,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>Shaneee - _mtrr_update_action fix PAT - 10.13/10.14/10.15/11.0/12.0/13.0</string>
+				<string>Shaneee | _mtrr_update_action | Fix PAT | 10.13+</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -1120,7 +1214,7 @@
 				<key>Mask</key>
 				<data>////////D////////////////w==</data>
 				<key>MaxKernel</key>
-				<string>22.99.99</string>
+				<string>23.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -1146,6 +1240,8 @@
 			<key>CustomSMBIOSGuid</key>
 			<true/>
 			<key>DisableIoMapper</key>
+			<false/>
+			<key>DisableIoMapperMapping</key>
 			<false/>
 			<key>DisableLinkeditJettison</key>
 			<true/>
@@ -1174,7 +1270,7 @@
 			<key>SetApfsTrimTimeout</key>
 			<integer>-1</integer>
 			<key>ThirdPartyDrives</key>
-			<true/>
+			<false/>
 			<key>XhciPortLimit</key>
 			<false/>
 		</dict>
@@ -1204,6 +1300,8 @@
 			<false/>
 			<key>HideAuxiliary</key>
 			<false/>
+			<key>InstanceIdentifier</key>
+			<string></string>
 			<key>LauncherOption</key>
 			<string>Disabled</string>
 			<key>LauncherPath</key>
@@ -1228,9 +1326,9 @@
 		<key>Debug</key>
 		<dict>
 			<key>AppleDebug</key>
-			<false/>
+			<true/>
 			<key>ApplePanic</key>
-			<false/>
+			<true/>
 			<key>DisableWatchDog</key>
 			<true/>
 			<key>DisplayDelay</key>
@@ -1242,7 +1340,7 @@
 			<key>SysReport</key>
 			<false/>
 			<key>Target</key>
-			<integer>0</integer>
+			<integer>67</integer>
 		</dict>
 		<key>Entries</key>
 		<array>
@@ -1416,8 +1514,6 @@
 			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
 			<array>
 				<string>rtc-blacklist</string>
-				<string>revcpu</string>
-				<string>revcpuname</string>
 			</array>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<array>
@@ -1445,6 +1541,8 @@
 				<string>fmm-mobileme-token-FMM-BridgeHasAccount</string>
 				<string>nvda_drv</string>
 				<string>prev-lang:kbd</string>
+				<string>backlight-level</string>
+				<string>BootCampHD</string>
 			</array>
 			<key>8BE4DF61-93CA-11D2-AA0D-00E098032B8C</key>
 			<array>
@@ -1469,13 +1567,13 @@
 			<key>AdviseFeatures</key>
 			<false/>
 			<key>MLB</key>
-			<string>F5K9518024NK3F7JC</string>
+			<string>F5K227802J9K3F7AD</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
 			<key>ProcessorType</key>
 			<integer>1537</integer>
 			<key>ROM</key>
-			<data>AB1PDV4i</data>
+			<data>VOqoqMOx</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
@@ -1483,9 +1581,9 @@
 			<key>SystemProductName</key>
 			<string>MacPro7,1</string>
 			<key>SystemSerialNumber</key>
-			<string>F5KZV0JVP7QM</string>
+			<string>F5KJ10UHP7QM</string>
 			<key>SystemUUID</key>
-			<string>535B897C-55F7-4D65-A8F4-40F4B96ED394</string>
+			<string>D9FA52C0-3A5C-4C59-AE22-D8456BF414C1</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1609,6 +1707,18 @@
 				<key>Path</key>
 				<string>OpenLinuxBoot.efi</string>
 			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>ResetNvramEntry.efi</string>
+			</dict>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -1633,16 +1743,22 @@
 		<dict>
 			<key>ClearScreenOnModeSwitch</key>
 			<false/>
+			<key>ConsoleFont</key>
+			<string></string>
 			<key>ConsoleMode</key>
 			<string></string>
 			<key>DirectGopRendering</key>
 			<false/>
 			<key>ForceResolution</key>
 			<false/>
+			<key>GopBurstMode</key>
+			<false/>
 			<key>GopPassThrough</key>
 			<string>Disabled</string>
 			<key>IgnoreTextInGraphics</key>
 			<false/>
+			<key>InitialMode</key>
+			<string>Auto</string>
 			<key>ProvideConsoleGop</key>
 			<true/>
 			<key>ReconnectGraphicsOnConnect</key>
@@ -1698,6 +1814,8 @@
 			<false/>
 			<key>OSInfo</key>
 			<false/>
+			<key>PciIo</key>
+			<false/>
 			<key>UnicodeCollation</key>
 			<false/>
 		</dict>
@@ -1727,6 +1845,10 @@
 			<true/>
 			<key>ResizeGpuBars</key>
 			<integer>-1</integer>
+			<key>ResizeUsePciRbIo</key>
+			<false/>
+			<key>ShimRetainProtocol</key>
+			<false/>
 			<key>TscSyncTimeout</key>
 			<integer>0</integer>
 			<key>UnblockFsConnect</key>
